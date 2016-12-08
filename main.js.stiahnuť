@@ -1,0 +1,56 @@
+$(document).ready(function () {
+    /*
+     var defaults = {
+     containerID: 'toTop', // fading element id
+     containerHoverID: 'toTopHover', // fading element hover id
+     scrollSpeed: 1200,
+     easingType: 'linear'
+     };
+     */
+
+
+    $().UItoTop({ easingType: 'easeOutQuart' });
+
+    $(".service-grids img").hover(function () {
+        var o = $(this);
+
+        //o.data('originalSrc', o.attr('src'));
+        o.css('opacity', 0.35);
+        o.attr('src', 'images/equip/' + o.attr("href-original") + "_col.png");
+        o.animate({"opacity": 1}, 400);
+
+        //this.src = "images/"+ $(this).attr("href-original") +"_col.png";
+
+    }, function () {
+
+        var o = $(this);
+        o.css('opacity', 0.35);
+        o.attr('src', 'images/equip/' + o.attr("href-original") + ".png");
+        o.animate({"opacity": 1}, 400);
+
+
+        //this.src = "images/" + $(this).attr("href-original") + ".png";
+    });
+
+    //countIconPosition();
+});
+
+/*
+ window.addEventListener("resize", function () {
+ countIconPosition();
+ });
+ */
+
+function countIconPosition() {
+
+
+    //var textHeight = $(".about-grid .about-grid-info").outerHeight();
+    /*
+     */
+    var imageHeight = $(".about-grid img").outerHeight();
+    var iconElement = $(".about-grid span");
+    var imageWidth = $(".about-grid img").outerWidth();
+
+    iconElement.css("top", imageHeight - (iconElement.outerHeight() / 2));
+    iconElement.css("left", (imageWidth / 2) - (iconElement.outerWidth() / 3));
+}
